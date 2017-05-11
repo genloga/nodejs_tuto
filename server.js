@@ -1,4 +1,19 @@
-var http = require('http');
+/* Pour mettre en place un ecouteur */
+var eventEmitter = require('events')
+var monEcouteur = new eventEmitter()
+
+// monEcouteur.once comme methode permet 
+// de lancer la fonction une seule fois
+// malgré le nombre de fois qu'il emet un 
+// evenement
+monEcouteur.on('saute', (a, b) => {
+  console.log('Corde a saute he he', a, b)
+})
+
+monEcouteur.emit('saute', 10, 20)
+
+
+/* var http = require('http');
 var fs = require('fs')
 var url = require('url')
 
@@ -21,4 +36,4 @@ server.on('request', (req, res) => {
     }
   })
 })
-server.listen(8080)
+server.listen(8080) */
